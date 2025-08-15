@@ -36,22 +36,11 @@ The key steps are:
 
 You can compile this code directly from the Developer Command Prompt for Visual Studio.
 
-```bash
-cl.exe pid-spoof.cpp /EHsc /Fe:pid-spoof.exe
-```
-*   `pid-spoof.cpp`: Your source file name.
-*   `/EHsc`: Specifies the exception-handling model.
-*   `/Fe:pid-spoof.exe`: Sets the name of the output executable.
-
-### Using MinGW-w64
-
-If you are using the MinGW-w64 toolchain, you can compile with g++.
 
 ```bash
-g++ pid-spoof.cpp -o pid-spoof.exe -lkernel32
+g++ pid-spoof.cpp -o pid-spoof.exe 
 ```
 *   `-o pid-spoof.exe`: Sets the name of the output executable.
-*   `-lkernel32`: Links against the Kernel32 library, which is necessary for many of the Windows API functions used.
 
 ## Usage
 
@@ -83,5 +72,6 @@ C:\> pid-spoof.exe 4824
 ```
 
 A new `cmd.exe` window will appear. Using a tool like **Process Hacker** or **Process Explorer**, you can inspect this new `cmd.exe` (PID `8916` in this example) and confirm that its parent process is listed as `explorer.exe` (PID `4824`), not `pid-spoof.exe`.
+
 
 
